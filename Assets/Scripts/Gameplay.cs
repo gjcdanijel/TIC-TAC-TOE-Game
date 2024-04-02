@@ -15,15 +15,18 @@ public class Gameplay : MonoBehaviour
     bool checkForWin;
     //int clickedButtonIndex;
     ClickHandler clickHandler;
+    GameFinish gameFinish;
     void Awake()
     {
         clickHandler = FindObjectOfType<ClickHandler>();
+        gameFinish = FindObjectOfType<GameFinish>();
     }
     void Start()
     {
         playerOnMove = 1;
         movesLeft = 9;
         RestartPlayedFields();
+        gameFinish.hideFinishWindow();
     }
     void Update()
     {
@@ -132,15 +135,17 @@ public class Gameplay : MonoBehaviour
         Debug.Log("Clicked button index: " + clickedButtonIndex);
         movesLeft--; Debug.Log("Moves left " + movesLeft);
         checkForWin = CheckForWin(playerOnMove, clickedButtonIndex);
-
-        ChangePlayer(playerOnMove);
+        if (!checkForWin)
+            ChangePlayer(playerOnMove);
     }
     public void EndGame()
     {
         Debug.Log("Game ended!");
         Debug.Log("Disabeling buttons");
         clickHandler.disableButtons();
-        // TODO : Load next scene
+        if (movesLeft < 0) playerOnMove = 0;
+        if (gameFinish != null)
+            gameFinish.showFinishWindow(playerOnMove);
     }
     public void printPlayedFiedls()
     {
