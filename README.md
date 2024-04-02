@@ -11,11 +11,9 @@ A basic Tic-Tac-Toe game developed in Unity with a twist of funny design pattern
 - Simple and intuitive user interface
 - Optimized for various screen sizes
 
-## Screenshots
-
-![Insert screenshots or GIFs showcasing the gameplay and design patterns here](#)
-
-## Getting Started
+## PLAY DEMO VERSION!
+https://sharemygame.com/@gjcdanijel/tic-tac-toe-demo
+or try with unity!
 
 ### Prerequisites
 
@@ -25,6 +23,6 @@ A basic Tic-Tac-Toe game developed in Unity with a twist of funny design pattern
 ### Installation
 
 1. Clone the repository:
-   ```bash
+   bash
    git clone https://github.com/your-username/tic-tac-toe.git
 
